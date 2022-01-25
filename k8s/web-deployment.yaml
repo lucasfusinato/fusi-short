@@ -1,0 +1,40 @@
+webVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: shorturl
+  labels:
+    app: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: lucasfusinato/shorturl-web
+        ports:
+        - containerPort: 8501
+        resources:
+          limits:
+            cpu: "50m"
+            memory: "100Mi"
+---
+webVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: shorturl
+spec:
+  type: NodePort
+  selector:
+    app: web
+  ports:
+    - port: 8501
+      targetPort: 8501
+      nodePort: 30010
