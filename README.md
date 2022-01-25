@@ -37,7 +37,7 @@ $ docker-compose down
 
 ## Author
 
-- **Lucas Fusinato Wilhelm Chiodini Zanis** - (lucasfusinato)[https://github.com/lucasfusinato]
+- **Lucas Fusinato Wilhelm Chiodini Zanis** - [lucasfusinato](https://github.com/lucasfusinato)
 
 ## License
 
