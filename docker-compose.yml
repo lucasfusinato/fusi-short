@@ -1,0 +1,33 @@
+version: '3.4'
+
+networks:
+  shorturl:
+    external: false
+
+services:
+  api:
+    image: lucasfusinato/shorturl-api
+    container_name: shorturl_api
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    networks:
+      - shorturl
+    environment:
+      - SECURITY_TOKEN=12345678
+    ports:
+      - "8000:8000"
+  web:
+    image: lucasfusinato/shorturl-web
+    container_name: shorturl_web
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    networks:
+      - shorturl
+    environment:
+      - PUBLIC_URL=http://localhost:8501
+      - API_URL=http://api:8000
+      - API_TOKEN=12345678
+    ports:
+      - "8501:8501"
