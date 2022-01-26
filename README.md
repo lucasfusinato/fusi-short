@@ -4,7 +4,7 @@
 
 ## About
 
-This is a playground application created with goal of applying full cycle software development, including analysis, design, development, testing, deployment and maintence, using popular technologies like Python, Docker and Kubernetes.
+This is a playground application created with goal of applying full cycle software development, including analysis, design, development, testing, deployment and maintence, using popular technologies like Python, Redis, Docker and Kubernetes.
 
 ## Orientações para execução local
 
@@ -30,6 +30,7 @@ $ docker-compose down
 
 ## Build with
 
+- [Redis](https://redis.io/): in-memory database;
 - [FastAPI](https://fastapi.tiangolo.com/): back-end API framwork;
 - [Streamlit](https://streamlit.io/): front-end WEB framework;
 - [Docker](https://www.docker.com/): containerization platofrm;
