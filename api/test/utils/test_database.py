@@ -1,5 +1,5 @@
 
-from api.app.utils import database
+from app.utils import database
 
 def test_set_short_url():
     database.set_short_url(alias='test_database', link='www.google.com')
