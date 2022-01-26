@@ -24,7 +24,7 @@ def post_short_url(short_url: PostShortUrlIn):
     if alias is None or len(alias) == 0:
         alias = str(uuid4())
     elif database.is_short_url_exists(alias=alias):
-        return HTTPException(status_code=HTTPStatus.CONFLICT, detail='Alias already used. Could you choose another one, please?')
+        raise HTTPException(status_code=HTTPStatus.CONFLICT, detail='Alias already used. Could you choose another one, please?')
     database.set_short_url(alias=alias, link=link)
     return PostShortUrlOut(alias=alias)
 
