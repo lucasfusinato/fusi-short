@@ -1,0 +1,38 @@
+dbVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  namespace: shorturl
+  labels:
+    app: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: db
+        image: redis:6.2.6
+        ports:
+        - containerPort: 6379
+        resources:
+          limits:
+            cpu: "150m"
+            memory: "300Mi"
+---
+dbVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  namespace: shorturl
+spec:
+  selector:
+    app: db
+  ports:
+    - port: 6379
+      targetPort: 6379

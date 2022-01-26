@@ -5,6 +5,13 @@ networks:
     external: false
 
 services:
+  db:
+    image: redis:6.2.6
+    container_name: shorturl_db
+    networks:
+      - shorturl
+    volumes:
+      - ./db/redis:/data
   api:
     image: lucasfusinato/shorturl-api
     container_name: shorturl_api
@@ -15,8 +22,13 @@ services:
       - shorturl
     environment:
       - SECURITY_TOKEN=12345678
+      - DATABASE_TYPE=redis
+      - DATABASE_HOST=db
+      - DATABASE_PORT=6379
     ports:
       - "8000:8000"
+    depends_on:
+      - db
   web:
     image: lucasfusinato/shorturl-web
     container_name: shorturl_web
@@ -31,3 +43,5 @@ services:
       - API_TOKEN=12345678
     ports:
       - "8501:8501"
+    depends_on:
+      - api

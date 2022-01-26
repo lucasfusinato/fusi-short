@@ -20,6 +20,22 @@ spec:
         image: lucasfusinato/shorturl-api
         ports:
         - containerPort: 8000
+        env:
+        - name: DATABASE_TYPE
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: db-type
+        - name: DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: db-host
+        - name: DATABASE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: db-port
         resources:
           limits:
             cpu: "50m"
