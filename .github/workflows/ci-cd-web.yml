@@ -38,6 +38,7 @@ jobs:
             lucasfusinato/fusishort-web:${{ github.run_number }}
 
   cd:
+    needs: [ci]
     runs-on: ubuntu-latest
 
     steps:

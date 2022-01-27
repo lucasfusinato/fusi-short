@@ -1,5 +1,5 @@
 FROM python:3.8-slim AS base
-WORKDIR /home/shorturl/api
+WORKDIR /app
 RUN adduser -u 5678 --disabled-password --gecos "" shorturl && chown -R shorturl .
 USER shorturl
 COPY requirements/base.txt requirements/base.txt
