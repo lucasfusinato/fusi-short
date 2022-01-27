@@ -5,10 +5,12 @@ on:
     branches: [ master ]
     paths:
       - 'web/**'
+      - '.github/workflows/ci-cd-web.yml'
   pull_request:
     branches: [ master ]
     paths:
       - 'web/**'
+      - '.github/workflows/ci-cd-web.yml'
 
 jobs:
   ci:
