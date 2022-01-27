@@ -2,7 +2,7 @@ dbVersion: apps/v1
 kind: Deployment
 metadata:
   name: db-deployment
-  namespace: shorturl
+  namespace: fusishort
   labels:
     app: db
 spec:
@@ -29,7 +29,7 @@ dbVersion: v1
 kind: Service
 metadata:
   name: db-service
-  namespace: shorturl
+  namespace: fusishort
 spec:
   selector:
     app: db

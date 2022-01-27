@@ -2,7 +2,7 @@ webVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
-  namespace: shorturl
+  namespace: fusishort
   labels:
     app: web
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: lucasfusinato/shorturl-web
+        image: lucasfusinato/fusishort-web
         ports:
         - containerPort: 8501
         resources:
@@ -29,7 +29,7 @@ webVersion: v1
 kind: Service
 metadata:
   name: web-service
-  namespace: shorturl
+  namespace: fusishort
 spec:
   type: NodePort
   selector:
