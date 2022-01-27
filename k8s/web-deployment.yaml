@@ -19,6 +19,17 @@ spec:
         image: lucasfusinato/fusishort-web
         ports:
         - containerPort: 8501
+        env:
+        - name: PUBLIC_URL
+          valueFrom:
+            configMapRefKey:
+              name: web-config
+              key: web-public-url
+        - name: API_URL
+          valueFrom:
+            configMapRefKey:
+              name: api-config
+              key: api-internal-url
         resources:
           limits:
             cpu: "50m"

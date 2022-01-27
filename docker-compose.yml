@@ -21,7 +21,6 @@ services:
     networks:
       - shorturl
     environment:
-      - SECURITY_TOKEN=12345678
       - DATABASE_TYPE=redis
       - DATABASE_HOST=db
       - DATABASE_PORT=6379
@@ -40,7 +39,6 @@ services:
     environment:
       - PUBLIC_URL=http://localhost:8501
       - API_URL=http://api:8000
-      - API_TOKEN=12345678
     ports:
       - "8501:8501"
     depends_on:
