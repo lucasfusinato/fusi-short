@@ -1,0 +1,53 @@
+name: FusiShort WEB CI/CD
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'web/**'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'web/**'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Docker Login
+        uses: docker/login-action@v1.12.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
+      - name: Docker Build and Push
+        uses: docker/build-push-action@v2.8.0
+        with:
+          context: ./web
+          file: ./web/Dockerfile
+          push: true
+          tags: |
+            lucasfusinato/fusishort-web:latest
+            lucasfusinato/fusishort-web:${{ github.run_number }}
+
+  cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Kubernetes Set Context
+        uses: Azure/k8s-set-context@v2
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
+
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v1.5
+        with:
+          namespace: ${{ secrets.K8S_NAMESPACE }}
+          manifests: |
+            k8s/web-deployment.yaml
