@@ -10,6 +10,7 @@ on:
     branches: [ master ]
     paths:
       - 'web/**'
+      - 'k8s/web-deployment.yaml'
       - '.github/workflows/ci-cd-web.yml'
 
 jobs:
