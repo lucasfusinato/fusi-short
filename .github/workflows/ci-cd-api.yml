@@ -21,6 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Run Unit Tests
+        run: docker build ./api --file ./api/Dockerfile --target test
+
       - name: Docker Login
         uses: docker/login-action@v1.12.0
         with:
@@ -32,6 +35,7 @@ jobs:
         with:
           context: ./api
           file: ./api/Dockerfile
+          target: production
           push: true
           tags: |
             lucasfusinato/fusishort-api:latest

@@ -18,6 +18,7 @@ services:
     build:
       context: .
       dockerfile: api/Dockerfile
+      target: development
     networks:
       - shorturl
     environment:
