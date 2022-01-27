@@ -2,7 +2,6 @@ dbVersion: apps/v1
 kind: Deployment
 metadata:
   name: db-deployment
-  namespace: fusishort
   labels:
     app: db
 spec:
