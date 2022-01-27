@@ -1,4 +1,4 @@
-dbVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: db-deployment
@@ -24,11 +24,10 @@ spec:
             cpu: "150m"
             memory: "300Mi"
 ---
-dbVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: db-service
-  namespace: fusishort
 spec:
   selector:
     app: db
