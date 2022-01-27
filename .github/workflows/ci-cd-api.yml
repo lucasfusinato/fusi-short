@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'api/**'
+      - 'k8s/api-deployment.yaml'
       - '.github/workflows/ci-cd-api.yml'
   pull_request:
     branches: [ master ]
