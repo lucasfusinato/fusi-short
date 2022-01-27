@@ -16,7 +16,6 @@ on:
 
 jobs:
   ci:
-    needs: [ci]
     runs-on: ubuntu-latest
 
     steps:
@@ -43,6 +42,7 @@ jobs:
             lucasfusinato/fusishort-api:${{ github.run_number }}
 
   cd:
+    needs: [ci]
     runs-on: ubuntu-latest
 
     steps:
