@@ -46,7 +46,6 @@ spec:
             httpHeaders:
             - name: Accept
               value: application/json
-            initialDelaySeconds: 30
             periodSeconds: 30
 ---
 apiVersion: v1
