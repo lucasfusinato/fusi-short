@@ -8,29 +8,29 @@
 
 This is a playground application created with goal of applying full cycle software development using popular technologies like Python, Redis, Docker and Kubernetes.
 
-## Orientações para execução local
+## Running locally
 
-1. Gerar o *build* das aplicações:
+1. Build applications:
 
 ```
 $ docker-compose build
 ```
 
-2. Executar as aplicações:
+2. Run applications:
 
 ```
 $ docker-compose up -d
 ```
 
-E pronto! A API poderá ser acessada através [deste link](http://localhost:8000/docs) e o servidor WEB [neste link](http://localhost:8501).
+That's all! API can be accessed on [this link](http://localhost:8000/docs) and web server [here](http://localhost:8501).
 
-2.1. Finalizar a execução:
+2.1. [After tests] Stop running:
 
 ```
 $ docker-compose down
 ```
 
-## Build with
+## Built with
 
 - [Redis](https://redis.io/): in-memory database;
 - [FastAPI](https://fastapi.tiangolo.com/): back-end API framwork;
