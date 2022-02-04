@@ -2,9 +2,11 @@
 
 🔗 FusiShort is a Python URL shortener application.
 
+![Funcionamento da aplicação](./docs/example.gif).
+
 ## About
 
-This is a playground application created with goal of applying full cycle software development, including analysis, design, development, testing, deployment and maintence, using popular technologies like Python, Redis, Docker and Kubernetes.
+This is a playground application created with goal of applying full cycle software development using popular technologies like Python, Redis, Docker and Kubernetes.
 
 ## Orientações para execução local
 
@@ -32,6 +34,7 @@ $ docker-compose down
 
 - [Redis](https://redis.io/): in-memory database;
 - [FastAPI](https://fastapi.tiangolo.com/): back-end API framwork;
+- [PyTest](https://docs.pytest.org/en/7.0.x/): Python unit test library;
 - [Streamlit](https://streamlit.io/): front-end WEB framework;
 - [Docker](https://www.docker.com/): containerization platofrm;
 - [Kubernetes](https://kubernetes.io/pt-br/): container orchestration platform.
