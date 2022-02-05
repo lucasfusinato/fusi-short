@@ -2,7 +2,7 @@
 
 🔗 FusiShort is a Python URL shortener application.
 
-![Funcionamento da aplicação](./docs/example.gif).
+![Funcionamento da aplicação](./docs/example.gif)
 
 ## About
 
