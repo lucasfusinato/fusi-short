@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fusi-short-argo-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/lucasfusinato/fusi-short
+    targetRevision: deploy/argocd
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: fusi-short
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
